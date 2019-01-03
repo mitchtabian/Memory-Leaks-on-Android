@@ -41,20 +41,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        private Context mContext;
-//        private WeakReference<Context> mContextRef;
+        private WeakReference<Context> mContextRef;
 
 
 
         public MyAsyncTask(Context context) {
-            context = null;
 //            this.mContext = context; // METHOD 1: CANCEL ASYNCTASK in onDestroy
-//            mContextRef = new WeakReference<>(context); // METHOD 2: Use WeakReference
+            mContextRef = new WeakReference<>(context); // METHOD 2: Use WeakReference
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
 
-//            Bitmap icon = BitmapFactory.decodeResource(mContextRef.get().getResources(),R.drawable.ic_launcher_background);
+            Bitmap icon = BitmapFactory.decodeResource(mContextRef.get().getResources(),R.drawable.ic_launcher_background);
 //            Bitmap icon = BitmapFactory.decodeResource(mContext.getResources(),R.drawable.ic_launcher_background);
 
             try {
